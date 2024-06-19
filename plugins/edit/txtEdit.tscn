@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvr5yi4jodnic"]
+
+[ext_resource type="FontFile" uid="uid://bm7nfoigse57e" path="res://JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Regular.ttf" id="1_84q2k"]
+
+[sub_resource type="GDScript" id="GDScript_3n7ou"]
+resource_name = "plainText"
+script/source = "extends CodeEdit
+
+@export var path : String
+"
+
+[node name="Plain Text" type="CodeEdit"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_84q2k")
+scroll_past_end_of_file = true
+minimap_draw = true
+caret_blink = true
+draw_control_chars = true
+draw_tabs = true
+draw_spaces = true
+gutters_draw_line_numbers = true
+delimiter_strings = Array[String]([])
+indent_automatic_prefixes = Array[String]([])
+auto_brace_completion_enabled = true
+script = SubResource("GDScript_3n7ou")
+
+[connection signal="caret_changed" from="." to="." method="_on_caret_changed"]

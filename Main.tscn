@@ -1,6 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://crc40tugtg6df"]
+[gd_scene load_steps=5 format=3 uid="uid://crc40tugtg6df"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_fvrnl"]
+[ext_resource type="Script" path="res://IDE.gd" id="1_tnf5y"]
+[ext_resource type="FontFile" uid="uid://xdfkyskl3qos" path="res://JetBrainsMono-2.304/fonts/ttf/JetBrainsMonoNL-Regular.ttf" id="2_unplu"]
+[ext_resource type="Script" path="res://MenuBarController.gd" id="3_v53en"]
 
-[node name="Main" type="Node2D"]
-script = ExtResource("1_fvrnl")
+[sub_resource type="LabelSettings" id="LabelSettings_phj8d"]
+font = ExtResource("2_unplu")
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tnf5y")
+
+[node name="Topmenu_Bottom" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="Topmenu_Bottom"]
+layout_mode = 2
+
+[node name="Top_Terminal" type="VSplitContainer" parent="Topmenu_Bottom"]
+layout_mode = 2
+split_offset = 500
+
+[node name="Sidebar_Files" type="HSplitContainer" parent="Topmenu_Bottom/Top_Terminal"]
+layout_mode = 2
+split_offset = 300
+
+[node name="SideBar" type="TabContainer" parent="Topmenu_Bottom/Top_Terminal/Sidebar_Files"]
+layout_mode = 2
+
+[node name="Files" type="TabContainer" parent="Topmenu_Bottom/Top_Terminal/Sidebar_Files"]
+layout_mode = 2
+drag_to_rearrange_enabled = true
+
+[node name="Terminal" type="PanelContainer" parent="Topmenu_Bottom/Top_Terminal"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Topmenu_Bottom/Top_Terminal/Terminal"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Topmenu_Bottom/Top_Terminal/Terminal/ScrollContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_phj8d")
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 50.0
+script = ExtResource("3_v53en")
+
+[node name="File" type="PopupMenu" parent="MenuBar"]
+
+[connection signal="index_pressed" from="MenuBar/File" to="." method="_on_file_index_pressed"]
+[connection signal="index_pressed" from="MenuBar/File" to="MenuBar" method="_on_file_index_pressed"]

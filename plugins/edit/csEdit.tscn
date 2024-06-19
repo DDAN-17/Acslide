@@ -1,0 +1,139 @@
+[gd_scene load_steps=4 format=3 uid="uid://piuhns1ds8y1"]
+
+[ext_resource type="FontFile" uid="uid://bm7nfoigse57e" path="res://JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Regular.ttf" id="1_ydxe8"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_ssq8m"]
+number_color = Color(0.560784, 1, 0.858824, 1)
+symbol_color = Color(0.670588, 0.788235, 1, 1)
+function_color = Color(0.341176, 0.694118, 1, 1)
+member_variable_color = Color(0.482353, 0.564706, 0.647059, 1)
+keyword_colors = {
+"abstract": Color(1, 0.549, 0.8, 1),
+"as": Color(1, 0.549, 0.8, 1),
+"base": Color(1, 0.549, 0.8, 1),
+"bool": Color(1, 0.549, 0.8, 1),
+"break": Color(1, 0.549, 0.8, 1),
+"byte": Color(1, 0.549, 0.8, 1),
+"case": Color(1, 0.549, 0.8, 1),
+"catch": Color(1, 0.549, 0.8, 1),
+"char": Color(1, 0.549, 0.8, 1),
+"checked": Color(1, 0.549, 0.8, 1),
+"class": Color(1, 0.549, 0.8, 1),
+"const": Color(1, 0.549, 0.8, 1),
+"continue": Color(1, 0.549, 0.8, 1),
+"decimal": Color(1, 0.549, 0.8, 1),
+"default": Color(1, 0.549, 0.8, 1),
+"delegate": Color(1, 0.549, 0.8, 1),
+"do": Color(1, 0.549, 0.8, 1),
+"double": Color(1, 0.549, 0.8, 1),
+"else": Color(1, 0.549, 0.8, 1),
+"enum": Color(1, 0.549, 0.8, 1),
+"event": Color(1, 0.549, 0.8, 1),
+"explicit": Color(1, 0.549, 0.8, 1),
+"extern": Color(1, 0.549, 0.8, 1),
+"false": Color(1, 0.549, 0.8, 1),
+"finally": Color(1, 0.549, 0.8, 1),
+"fixed": Color(1, 0.549, 0.8, 1),
+"float": Color(1, 0.549, 0.8, 1),
+"for": Color(1, 0.549, 0.8, 1),
+"foreach": Color(1, 0.549, 0.8, 1),
+"goto": Color(1, 0.549, 0.8, 1),
+"if": Color(1, 0.549, 0.8, 1),
+"implicit": Color(1, 0.549, 0.8, 1),
+"in": Color(1, 0.549, 0.8, 1),
+"int": Color(1, 0.549, 0.8, 1),
+"interface": Color(1, 0.549, 0.8, 1),
+"internal": Color(1, 0.549, 0.8, 1),
+"is": Color(1, 0.549, 0.8, 1),
+"lock": Color(1, 0.549, 0.8, 1),
+"long": Color(1, 0.549, 0.8, 1),
+"namespace": Color(1, 0.549, 0.8, 1),
+"new": Color(1, 0.549, 0.8, 1),
+"null": Color(1, 0.549, 0.8, 1),
+"object": Color(1, 0.549, 0.8, 1),
+"operator": Color(1, 0.549, 0.8, 1),
+"out": Color(1, 0.549, 0.8, 1),
+"override": Color(1, 0.549, 0.8, 1),
+"params": Color(1, 0.549, 0.8, 1),
+"private": Color(1, 0.549, 0.8, 1),
+"protected": Color(1, 0.549, 0.8, 1),
+"public": Color(1, 0.549, 0.8, 1),
+"readonly": Color(1, 0.549, 0.8, 1),
+"ref": Color(1, 0.549, 0.8, 1),
+"return": Color(1, 0.549, 0.8, 1),
+"sbyte": Color(1, 0.549, 0.8, 1),
+"sealed": Color(1, 0.549, 0.8, 1),
+"short": Color(1, 0.549, 0.8, 1),
+"sizeof": Color(1, 0.549, 0.8, 1),
+"stackalloc": Color(1, 0.549, 0.8, 1),
+"static": Color(1, 0.549, 0.8, 1),
+"string": Color(1, 0.549, 0.8, 1),
+"struct": Color(1, 0.549, 0.8, 1),
+"switch": Color(1, 0.549, 0.8, 1),
+"this": Color(1, 0.549, 0.8, 1),
+"throw": Color(1, 0.549, 0.8, 1),
+"true": Color(1, 0.549, 0.8, 1),
+"try": Color(1, 0.549, 0.8, 1),
+"typeof": Color(1, 0.549, 0.8, 1),
+"uint": Color(1, 0.549, 0.8, 1),
+"ulong": Color(1, 0.549, 0.8, 1),
+"unchecked": Color(1, 0.549, 0.8, 1),
+"unsafe": Color(1, 0.549, 0.8, 1),
+"ushort": Color(1, 0.549, 0.8, 1),
+"using": Color(1, 0.549, 0.8, 1),
+"virtual": Color(1, 0.549, 0.8, 1),
+"void": Color(1, 0.549, 0.8, 1),
+"volatile": Color(1, 0.549, 0.8, 1),
+"while": Color(1, 0.549, 0.8, 1)
+}
+color_regions = {
+"\" \"": Color(0.964706, 0.898039, 0.611765, 1)
+}
+
+[sub_resource type="GDScript" id="GDScript_3ncgn"]
+resource_name = "csEdit"
+script/source = "extends CodeEdit
+
+@export var path : String
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+func _on_caret_changed():
+	if \" {\\n\\t\\n}\" in text:
+		var location = get_caret_line()
+		text = text.replace(\" {\\n\\t\\n}\", \"\\n{\\n\\t\\n}\")
+		set_caret_line(location + 1)
+		set_caret_column(1)
+"
+
+[node name="C#" type="CodeEdit"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ydxe8")
+scroll_past_end_of_file = true
+minimap_draw = true
+caret_blink = true
+syntax_highlighter = SubResource("CodeHighlighter_ssq8m")
+highlight_all_occurrences = true
+highlight_current_line = true
+draw_control_chars = true
+draw_tabs = true
+draw_spaces = true
+line_folding = true
+gutters_draw_executing_lines = true
+gutters_draw_line_numbers = true
+gutters_zero_pad_line_numbers = true
+gutters_draw_fold_gutter = true
+indent_automatic = true
+indent_automatic_prefixes = Array[String](["{", "[", "("])
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+script = SubResource("GDScript_3ncgn")
+
+[connection signal="caret_changed" from="." to="." method="_on_caret_changed"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://d303uomj1ipfw"]
+
+[ext_resource type="Script" path="res://Core/closeable_window.gd" id="1_3c641"]
+
+[node name="CloseablePopup" type="Window"]
+title = "Test Title"
+initial_position = 1
+size = Vector2i(500, 200)
+script = ExtResource("1_3c641")
+
+[node name="Message" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 510.0
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 25
+autowrap_mode = 1
+
+[node name="Ok" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -60.0
+offset_right = 25.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Ok"
+
+[connection signal="pressed" from="Ok" to="." method="close_window"]

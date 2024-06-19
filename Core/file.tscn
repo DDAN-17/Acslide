@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy1bt2atttc6a"]
+
+[ext_resource type="Script" path="res://Core/file.gd" id="1_me1rg"]
+
+[node name="File" type="FileDialog"]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(1308, 800)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+script = ExtResource("1_me1rg")
+
+[connection signal="canceled" from="." to="." method="close_window"]
+[connection signal="file_selected" from="." to="." method="_on_file_selected"]

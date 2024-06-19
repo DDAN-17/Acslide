@@ -11,10 +11,30 @@ config_version=5
 [application]
 
 config/name="Acslide"
+config/version="1.0.0-beta"
+run/main_scene="res://Main.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Acslide"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/low_processor_mode=true
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
-[dotnet]
+[autoload]
 
-project/assembly_name="GodotSharp_"
+Core="*res://Core/core.gd"
+Settings="*res://Core/settings.gd"
+
+[display]
+
+window/size/mode=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[input]
+
+open_file={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"command_or_control_autoremap":true,"alt_pressed":false,"shift_pressed":false,"pressed":false,"keycode":0,"physical_keycode":79,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
