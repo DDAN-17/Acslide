@@ -1,9 +1,13 @@
 extends RefCounted
+class_name TXT_Build
 
 var path = ""
 
 func _init(path):
 	self.path = path
+
+static func ready():
+	print("txtBuild ready")
 
 func run(path = self.path):
 	var extention = path.split(".")[path.split(".").size() - 1]

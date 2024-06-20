@@ -1,9 +1,13 @@
 extends RefCounted
+class_name CS_Build
 
 var path = ""
 
 func _init(path:String):
 	self.path = path
+
+static func ready():
+	print("csBuild ready")
 
 func compile(path:String):
 	if path == "":

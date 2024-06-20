@@ -3,6 +3,11 @@ extends Node
 @onready var terminal = $"../Main/Topmenu_Bottom/Top_Terminal/Terminal/ScrollContainer/Label"
 
 func _init():
+	CS_Build.ready()
+	TXT_Build.ready()
+	
+	print(DirAccess.get_files_at("res://plugins/edit"))
+	print(DirAccess.get_directories_at("res://"))
 	if not DirAccess.dir_exists_absolute("user://plugins"):
 		DirAccess.open("user://").make_dir("plugins")
 
@@ -25,7 +30,7 @@ func terminal_print(string:String):
 func load_plugin(pluginName):
 	if FileAccess.file_exists("user://plugins/" + pluginName):
 		return load("user://plugins/" + pluginName)
-	elif FileAccess.file_exists("res://plugins/" + pluginName):
+	elif FileAccess.file_exists("res://plugins/" + pluginName) or FileAccess.file_exists("res://plugins/" + pluginName + ".remap"):
 		return load("res://plugins/" + pluginName)
 	else:
 		return FAILED

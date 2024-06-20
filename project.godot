@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Acslide"
-config/version="1.0.0-beta"
+config/version="0.0"
 run/main_scene="res://Main.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Acslide"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/low_processor_mode=true
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="icon.png"
 
 [autoload]
 

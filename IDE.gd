@@ -13,9 +13,9 @@ func open_file(filePath):
 	var file = Core.load_plugin("edit/" + extention + "Edit.tscn")
 	if file is int:
 		if file == 1:
+			Core.warning("Extention " + extention + " not found; Using .txt as Fallback")
 			file = Core.load_plugin("edit/txtEdit.tscn")
 			file = file.instantiate()
-			Core.warning("Extention " + extention + " not found; Using .txt as Fallback")
 	elif file is PackedScene:
 		file = file.instantiate()
 		
