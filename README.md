@@ -1,9 +1,9 @@
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/DDAN-17/Acslide/total)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/DDAN-17/Acslide)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-closed/DDAN-17/Acslide)
-![GitHub License](https://img.shields.io/github/license/DDAN-17/Acslide)
 ![GitHub repo size](https://img.shields.io/github/repo-size/DDAN-17/Acslide)
 ![GitHub Release](https://img.shields.io/github/v/release/DDAN-17/Acslide)
+![GitHub License](https://img.shields.io/github/license/DDAN-17/Acslide)
 
 # Acslide
 
